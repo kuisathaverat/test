@@ -11,10 +11,10 @@ node {
     
     checkout scm
 //    sh 'git status'
-    sh 'GIT_COMMIT=$(git rev-parse HEAD)'
-    sh 'GIT_BRANCH=$(git symbolic-ref -q --short HEAD)'
+//    sh 'GIT_COMMIT=$(git rev-parse HEAD)'
+//    sh 'GIT_BRANCH=$(git symbolic-ref -q --short HEAD)'
 
-   sh 'git checkout ${GIT_BRANCH}'
+   sh 'git checkout ${BRANCH_NAME}'
 //    fsSh 'git branch -t'
 
     fsSh 'git remote -v'
