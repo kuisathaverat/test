@@ -9,6 +9,7 @@ def fsSh( String cmd ) {
 node {
     sh 'ls -la'
     checkout scm
+    echo env.GIT_BRANCH
     sh 'git status'
 //    sh 'git checkout master'
     fsSh 'git branch -t'
