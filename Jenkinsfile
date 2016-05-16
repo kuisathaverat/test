@@ -14,6 +14,6 @@ node {
     sh 'export'
 //    sh 'git reset --hard'
     fsSh 'git remote -v'
-    fsSh 'git branch'
+    fsSh 'git branch -v'
     fsSh 'git branch -a'
 }
