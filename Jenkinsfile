@@ -10,10 +10,9 @@ node {
     sh 'ls -la'
     checkout scm
     sh 'git status'
-    sh 'git checkout master'
-//    sh 'git pull origin master'
-//    sh 'export'
-//    sh 'git reset --hard'
+//    sh 'git checkout master'
+    fsSh 'git branch -t'
+
     fsSh 'git remote -v'
     fsSh 'git branch -v'
     fsSh 'git branch -a'
