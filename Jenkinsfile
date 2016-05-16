@@ -9,7 +9,7 @@ def fsSh( String cmd ) {
 node {
     sh 'ls -la'
     checkout scm
-    echo scm
+    echo 'GIT_BRANCH : ${GIT_BRANCH}'
     sh 'export'
     sh 'git reset --hard'
     fsSh 'git remote -v'
