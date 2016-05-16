@@ -12,7 +12,7 @@ node {
     echo env.GIT_BRANCH
     sh 'git status'
 //    sh 'git checkout master'
-    fsSh 'git branch -t'
+//    fsSh 'git branch -t'
 
     fsSh 'git remote -v'
     fsSh 'git branch -v'
