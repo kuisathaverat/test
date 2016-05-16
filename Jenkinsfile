@@ -9,9 +9,11 @@ def fsSh( String cmd ) {
 node {
     sh 'ls -la'
     checkout scm
-    echo env.GIT_BRANCH
-    sh 'git status'
-//    sh 'git checkout master'
+//    sh 'git status'
+    sh 'GIT_COMMIT=$(git rev-parse HEAD)'
+    sh 'GIT_BRANCH=$(git symbolic-ref -q --short HEAD)'
+
+   sh 'git checkout ${GIT_BRANCH}'
 //    fsSh 'git branch -t'
 
     fsSh 'git remote -v'
