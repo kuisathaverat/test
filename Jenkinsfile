@@ -1,8 +1,14 @@
 stage 'git'
 
+
+def fsSh( String cmd ) {
+  sh cmd + " || true"
+}
+
+
 node {
         sh 'ls -la'
-        sh 'git remote -v'
-        sh 'git branch'
-        sh 'git branch -a'
+        fsSh 'git remote -v'
+        fsSh 'git branch'
+        fsSh 'git branch -a'
 }
