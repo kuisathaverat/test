@@ -12,7 +12,7 @@ node {
     sh 'echo GIT_BRANCH : ${GIT_BRANCH}'
     sh 'git checkout -'
     sh 'export'
-    sh 'git reset --hard'
+//    sh 'git reset --hard'
     fsSh 'git remote -v'
     fsSh 'git branch'
     fsSh 'git branch -a'
