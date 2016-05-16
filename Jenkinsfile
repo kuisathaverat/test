@@ -7,7 +7,8 @@ def fsSh( String cmd ) {
 
 
 node {
-    sh 'ls -la'
+    sh 'export'
+    
     checkout scm
 //    sh 'git status'
     sh 'GIT_COMMIT=$(git rev-parse HEAD)'
