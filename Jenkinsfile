@@ -9,7 +9,7 @@ def fsSh( String cmd ) {
 node {
     sh 'export'
     stage 'One'
-    checkout 'https://github.com/kuisathaverat/test.git'
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kuisathaverat/test.git']]])
 //    sh 'git status'
 //    sh 'GIT_COMMIT=$(git rev-parse HEAD)'
 //    sh 'GIT_BRANCH=$(git symbolic-ref -q --short HEAD)'
