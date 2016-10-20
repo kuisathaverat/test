@@ -8,16 +8,17 @@ def fsSh( String cmd ) {
 
 node {
     sh 'export'
-    
+    stage 'One'
     checkout scm
 //    sh 'git status'
 //    sh 'GIT_COMMIT=$(git rev-parse HEAD)'
 //    sh 'GIT_BRANCH=$(git symbolic-ref -q --short HEAD)'
-
+    stage 'Two'
    sh 'git checkout ${BRANCH_NAME}'
 //    fsSh 'git branch -t'
-
+    stage 'Three'
     fsSh 'git remote -v'
+    stage 'Four'
     fsSh 'git branch -v'
     fsSh 'git branch -a'
 }
