@@ -1,4 +1,6 @@
 
-sh 'curl -O https://raw.githubusercontent.com/kuisathaverat/test/master/realScript.groovy'
-def script = new File('realScript.groovy')
-evaluate(script)    
+node(){
+    sh 'curl -O https://raw.githubusercontent.com/kuisathaverat/test/master/realScript.groovy'
+    def script = sh 'cat realScript.groovy'
+    evaluate('println "text"')        
+}
