@@ -6,13 +6,13 @@ def fsSh( String cmd ) {
 }
 
 
-node {
+node (){
     sh 'export'
-    stage 'Remote jenkinsfile' {
+    stage ('Remote jenkinsfile') {
         checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kuisathaverat/test.git']]])        
     }
     
-    stage 'Remote jenkinsfile' {
+    stage ('Remote jenkinsfile') {
         echo 'breaking the rules'
     }
 }
