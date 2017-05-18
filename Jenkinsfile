@@ -17,9 +17,9 @@ def fsSh( String cmd ) {
 node (){
     sh 'export'
     stage ('Remote jenkinsfile') {
-      checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kuisathaverat/test.git']]])        
-      java.net.URL url = new java.net.URL('http://site.com')
-      url.getText()
+      //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/kuisathaverat/test.git']]])        
+      //java.net.URL url = new java.net.URL('http://site.com')
+      //url.getText()
     }
     
     stage ('Remote jenkinsfile') {
