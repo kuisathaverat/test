@@ -18,7 +18,4 @@ Test Pipeline Plugin
 111
 111
 
-
-FAILURE!!!!!
-FAILURE!!!!!
-
+SUCCESS!!!!
