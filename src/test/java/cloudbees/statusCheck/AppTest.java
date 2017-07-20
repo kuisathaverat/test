@@ -33,7 +33,7 @@ public class AppTest
      */
     public void testApp()
     {
-    	//throw new RuntimeException(" KO - 9");
+    	//throw new RuntimeException(" KO - 10");
         assertTrue( true );
     }
 }
