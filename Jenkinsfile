@@ -23,6 +23,6 @@ node (){
 //    }
     
 //    stage ('Remote jenkinsfile') {
-        echo 'breaking the rules'
+        echo 'breaking the rules - 1'
 //    }
 }
