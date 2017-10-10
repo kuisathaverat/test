@@ -5,7 +5,6 @@ def fsSh( String cmd ) {
   sh cmd + " || true"
 }
 
-
 node (){
     sh 'export'
     stage ('Remote jenkinsfile') {
