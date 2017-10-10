@@ -6,6 +6,9 @@ node(){
 }
 */
 
+properties([pipelineTriggers([pollSCM('*/2 * * * *')])])
+
+
 stage 'git'
 
 
