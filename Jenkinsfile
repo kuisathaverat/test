@@ -19,6 +19,15 @@ pipeline {
           }
         }
       }
+      post {
+        always{
+          updateGithubCommitStatus(
+          repoUrl: "${GIT_URL}",
+          commitSha: "${GIT_COMMIT}",
+          message: 'Build result.'
+          )
+        }
+      }
     }
   }
 }
