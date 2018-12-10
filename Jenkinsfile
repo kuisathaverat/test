@@ -11,8 +11,17 @@ pipeline {
   stages {
     stage('Dummy'){
       steps {
-        sh 'export'
-        checkout scm
+        checkout([$class: 'GitSCM', 
+        branches: [[name: "${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}"]], 
+        doGenerateSubmoduleConfigurations: false, 
+        extensions: [[$class: 'CloneOption', 
+          noTags: false, 
+          reference: '/Users/inifc/src/go-test', 
+          shallow: false]], 
+        submoduleCfg: [], 
+        userRemoteConfigs: [[credentialsId: 'UserAndToken', 
+        url: "${env?.GIT_URL}"]]])
+        error "Please do not continue"
       }
     }
   }
