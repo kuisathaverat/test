@@ -18,7 +18,7 @@ pipeline {
           doGenerateSubmoduleConfigurations: false, 
           extensions: [
             [$class: 'ChangelogToBranch', 
-              options: [compareRemote: "origin", 
+              options: [compareRemote: "origin",
               compareTarget: "master"]]], 
           submoduleCfg: [], 
           userRemoteConfigs: [
