@@ -18,8 +18,8 @@ pipeline {
           doGenerateSubmoduleConfigurations: false, 
           extensions: [
             [$class: 'ChangelogToBranch', 
-              options: [compareRemote: "${env?.GIT_URL}", 
-              compareTarget: "${env?.CHANGE_ID ? env?.CHANGE_TARGET : 'master'}"]]], 
+              options: [compareRemote: "origin", 
+              compareTarget: "master"]]], 
           submoduleCfg: [], 
           userRemoteConfigs: [
             [credentialsId: 'UserAndToken', 
