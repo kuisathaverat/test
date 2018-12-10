@@ -12,15 +12,16 @@ pipeline {
     stage('Dummy'){
       steps {
         checkout([$class: 'GitSCM', 
-        branches: [[name: "${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}"]], 
-        doGenerateSubmoduleConfigurations: false, 
-        extensions: [[$class: 'CloneOption', 
-          noTags: false, 
-          reference: '/Users/inifc/src/go-test', 
-          shallow: false]], 
-        submoduleCfg: [], 
-        userRemoteConfigs: [[credentialsId: 'UserAndToken', 
-        url: "${env?.GIT_URL}"]]])
+          branches: [[name: "${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}"]],
+          doGenerateSubmoduleConfigurations: false, 
+          extensions: [
+            [$class: 'ChangelogToBranch', 
+              options: [compareRemote: "${env?.GIT_URL}", 
+              compareTarget: "${env?.CHANGE_ID ? env?.CHANGE_TARGET : 'master'}"]]], 
+          submoduleCfg: [], 
+          userRemoteConfigs: [
+            [credentialsId: 'UserAndToken', 
+            url: "${env?.GIT_URL}"]]])
         error "Please do not continue"
       }
     }
