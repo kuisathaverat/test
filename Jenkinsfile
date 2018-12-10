@@ -12,12 +12,12 @@ pipeline {
     stage('Dummy'){
       steps {
         checkout([$class: 'GitSCM', 
-        branches: [[name: '${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}']], 
+        branches: [[name: "${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}"]], 
         doGenerateSubmoduleConfigurations: false, 
         extensions: [[$class: 'ChangelogToBranch', 
           options: [compareRemote: 'origin', compareTarget: 'master']]], 
         submoduleCfg: [], 
-        userRemoteConfigs: [[credentialsId: 'UserAndToken', url: '${env?.GIT_URL}']]])
+        userRemoteConfigs: [[credentialsId: 'UserAndToken', url: "${env?.GIT_URL}"]]])
       }
     }
   }
