@@ -10,9 +10,20 @@ pipeline {
   }
   stages {
     stage('Dummy'){
+      agent { label 'master' }
+      options { skipDefaultCheckout() }
       steps {
-        sh 'export'
-        checkout scm
+        checkout([$class: 'GitSCM', 
+          branches: [[name: "${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}"]],
+          doGenerateSubmoduleConfigurations: false, 
+          extensions: [
+            [$class: 'ChangelogToBranch', 
+              options: [compareRemote: "origin",
+              compareTarget: "master"]]], 
+          submoduleCfg: [], 
+          userRemoteConfigs: [
+            [credentialsId: 'UserAndToken', 
+            url: "${env?.GIT_URL}"]]])
       }
     }
   }
