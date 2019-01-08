@@ -8,6 +8,9 @@ pipeline {
     disableResume()
     durabilityHint('PERFORMANCE_OPTIMIZED')
   }
+  triggers {
+    issueCommentTrigger('.*Jenkins test this.*')
+  }
   stages {
     stage('Dummy'){
       agent { label 'master' }
