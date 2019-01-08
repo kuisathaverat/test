@@ -27,6 +27,7 @@ pipeline {
           userRemoteConfigs: [
             [credentialsId: 'UserAndToken', 
             url: "${env?.GIT_URL}"]]])
+        sh "export"
       }
     }
   }
