@@ -11,6 +11,9 @@ pipeline {
   triggers {
     issueCommentTrigger('.*Jenkins test this.*')
   }
+  environment {
+    PIPELINE_LOG_LEVEL = 'DEBUG'
+  }
   stages {
     stage('Dummy'){
       agent { label 'master' }
