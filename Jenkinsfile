@@ -22,7 +22,7 @@ pipeline {
       options { skipDefaultCheckout() }
       steps {
         checkout([$class: 'GitSCM', 
-          branches: [[name: "${env?.CHANGE_ID ? env?.GIT_COMMIT : env?.BRANCH_NAME}"]],
+          branches: [[name: "${env?.BRANCH_NAME}"]],
           doGenerateSubmoduleConfigurations: false, 
           extensions: [
             [$class: 'ChangelogToBranch', 
