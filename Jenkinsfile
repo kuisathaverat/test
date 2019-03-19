@@ -21,17 +21,18 @@ pipeline {
       agent { label 'master' }
       options { skipDefaultCheckout() }
       steps {
-        checkout([$class: 'GitSCM', 
-          branches: [[name: "${env?.BRANCH_NAME}"]],
-          doGenerateSubmoduleConfigurations: false, 
-          extensions: [
-            [$class: 'ChangelogToBranch', 
-              options: [compareRemote: "origin",
-              compareTarget: "master"]]], 
-          submoduleCfg: [], 
-          userRemoteConfigs: [
-            [credentialsId: 'UserAndToken', 
-            url: "${env?.GIT_URL}"]]])
+        gitCheckout(basedir: "src")
+        // checkout([$class: 'GitSCM', 
+        //   branches: [[name: "${env?.BRANCH_NAME}"]],
+        //   doGenerateSubmoduleConfigurations: false, 
+        //   extensions: [
+        //     [$class: 'ChangelogToBranch', 
+        //       options: [compareRemote: "origin",
+        //       compareTarget: "master"]]], 
+        //   submoduleCfg: [], 
+        //   userRemoteConfigs: [
+        //     [credentialsId: 'UserAndToken', 
+        //     url: "${env?.GIT_URL}"]]])
       }
     }
   }
