@@ -18,10 +18,10 @@ pipeline {
         dir("${BASE_DIR}"){
           sh(label: 'Env vars after', script: 'export|grep GIT_')
           whenFalse("${env.REAL_GIT_COMMIT}" == "${env.GIT_BASE_COMMIT}"){
-            error("The GIT_BASE_COMMIT value is incorrect, we expect ${env.GIT_COMMIT} and it is ${env.GIT_BASE_COMMIT}")
+            error("The GIT_BASE_COMMIT value is incorrect, we expect ${env.REAL_GIT_COMMIT} and it is ${env.GIT_BASE_COMMIT}")
           }
-          whenFalse("${env.GIT_COMMIT}" == "1111"){
-            error("The GIT_COMMIT value is incorrect, we expect 1111 and it is ${env.GIT_COMMIT}")
+          whenFalse("${env.GIT_COMMIT}" == "${env.OLD_GIT_COMMIT}"){
+            error("The GIT_COMMIT value is incorrect, we expect ${env.OLD_GIT_COMMIT} and it is ${env.GIT_COMMIT}")
           }
         }
       }
