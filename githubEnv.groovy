@@ -1,7 +1,7 @@
 pipeline {
   agent { label 'master' }
   environment {
-    BASE_DIR = "src/github.com/elastic/${env.REPO}"
+    BASE_DIR = "src/github.com/kuisathaverat/${env.REPO}"
     JOB_GIT_CREDENTIALS = "f6c7695a-671e-4f4f-a331-acdce44ff9ba"
   }
   stages {
@@ -13,7 +13,7 @@ pipeline {
         sh(label: 'Env vars before', script: 'export|grep GIT_')
         gitCheckout(basedir: "${BASE_DIR}",
           branch: "master",
-          repo: "file:///repo",
+          repo: "https://github.com/kuisathaverat/test.git",
           credentialsId: "${JOB_GIT_CREDENTIALS}"
         )
         dir("${BASE_DIR}"){
