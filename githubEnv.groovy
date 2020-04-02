@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'master' }
+  agent any
   environment {
     BASE_DIR = "src/github.com/kuisathaverat/${env.REPO}"
     JOB_GIT_CREDENTIALS = "f6c7695a-671e-4f4f-a331-acdce44ff9ba"
