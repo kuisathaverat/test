@@ -7,9 +7,8 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        deleteDir()
         setEnvVar("REAL_GIT_COMMIT", getGitCommitSha())
-        setEnvVar("OLD_GIT_COMMIT", "${env.OLD_GIT_COMMIT}")
+        setEnvVar("OLD_GIT_COMMIT", "${env.GIT_COMMIT}")
         sh(label: 'Env vars before', script: 'export|grep GIT_')
         gitCheckout(basedir: "${BASE_DIR}",
           branch: "master",
